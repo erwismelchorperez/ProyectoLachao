@@ -1,0 +1,14 @@
+
+psql -U emelchor -d lachao
+
+\COPY socios FROM '/home/emelchor/Documentos/ProyectoLachao/EDA/Socios.csv' DELIMITER ',' CSV HEADER;
+\COPY cartera FROM '/home/emelchor/Documentos/ProyectoLachao/EDA/Cartera.csv' DELIMITER ',' CSV HEADER;
+\COPY captacion FROM '/home/emelchor/Documentos/ProyectoLachao/EDA/Captacion.csv' DELIMITER ',' CSV HEADER;
+
+\COPY (
+    SELECT *
+    FROM procesadocartera
+) TO '/home/emelchor/Documentos/ProyectoLachao/EDA/Export_procesado.csv' 
+DELIMITER ',' CSV HEADER;
+
+\COPY otrosdatosV2 FROM '/home/emelchor/Documentos/ProyectoLachao/EDA/otrosdatosV2.csv' DELIMITER ',' CSV HEADER;
